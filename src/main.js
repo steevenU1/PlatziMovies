@@ -8,15 +8,10 @@ const api = axios.create({
     },
 });
 
+//Helpers
 
-
-async function getTrendingMoviesPreview() {
-    const {data} = await api('trending/movie/day');
-    
-
-    const movies = data.results;
-
-    trendingMoviesPreviewList.innerHTML = "";
+function createMovies(movies, container){
+    container.innerHTML = '';
 
     movies.forEach(movie => {
         
@@ -31,8 +26,38 @@ async function getTrendingMoviesPreview() {
         movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
 
         movieContainer.appendChild(movieImg);
-        trendingMoviesPreviewList.appendChild(movieContainer);
+        container.appendChild(movieContainer);
     });
+}
+
+//Llamados a API
+
+
+async function getTrendingMoviesPreview() {
+    const {data} = await api('trending/movie/day');
+    
+
+    const movies = data.results;
+
+    createMovies(movies, trendingMoviesPreviewList);
+
+    // trendingMoviesPreviewList.innerHTML = "";
+
+    // movies.forEach(movie => {
+        
+
+
+    //     const movieContainer = document.createElement('div')
+    //     movieContainer.classList.add('movie-container');
+
+    //     const movieImg = document.createElement('img');
+    //     movieImg.classList.add('movie-img');
+    //     movieImg.setAttribute('alt', movie.title);
+    //     movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
+
+    //     movieContainer.appendChild(movieImg);
+    //     trendingMoviesPreviewList.appendChild(movieContainer);
+    // });
 }
 
 async function getCategoriesPreview() {
