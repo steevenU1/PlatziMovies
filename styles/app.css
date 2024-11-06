@@ -4,11 +4,11 @@
 :root {
   --purple-light-1: #FBFAFB;
   --purple-light-2: #EEEAF2;
-  --purple-medium-1: #AA83C8;
-  --purple-medium-2: #8B48BF;
-  --purple-medium-3: #5C218A;
-  --purple-dark-1: #3E0F64;
-  --purple-dark-2: #2A0646;
+  --purple-medium-1: #a8a8a8;
+  --purple-medium-2: #3b3a3b;
+  --purple-medium-3: #000000;
+  --purple-dark-1: #000000;
+  --purple-dark-2: #000000;
 
   --yellow: #EECC75;
   --green: #CAD297;
