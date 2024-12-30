@@ -38,12 +38,17 @@ function createMovies(movies, container, lazyLoad = false){
         movieImg.setAttribute('alt', movie.title);
         movieImg.setAttribute(lazyLoad ? 'data-img' : 'src', 'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
 
+    
+
         if (lazyLoad){
             lazyLoader.observe(movieImg);
         }
 
         movieContainer.appendChild(movieImg);
         container.appendChild(movieContainer);
+
+                
+        
     });
 }
 
@@ -178,7 +183,7 @@ async function getMoviesBySearch(query) {
 
     const movies = data.results;
 
-    createMovies(movies, genericSection);
+    createMovies(movies, genericSection, true);
 
     
 }
